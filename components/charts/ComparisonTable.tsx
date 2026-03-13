@@ -26,10 +26,11 @@ export function ComparisonTable({ title, height = 600 }: ComparisonTableProps) {
     // Filter data
     const filtered = filterData(dataset, filters)
 
-    // Get the selected year (use base year or middle of range)
-    const year = filters.yearRange[0] + Math.floor((filters.yearRange[1] - filters.yearRange[0]) / 2)
+    // Use the first forecast year (base_year + 1 = 2026) for the VALUE column display
     const startYear = filters.yearRange[0]
     const endYear = filters.yearRange[1]
+    const baseYear = data.metadata.base_year || 2025
+    const year = baseYear + 1
 
     // Helper function to parse CAGR (handles string, number, or null)
     const parseCAGR = (cagr: any): number => {

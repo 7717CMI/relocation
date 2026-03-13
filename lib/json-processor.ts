@@ -674,7 +674,7 @@ async function processSegmentTypeAsync(
   // Helper function to extract segments from a data source
   const extractSegmentsFromSource = async (sourceData: RawJsonData, sourceName: string) => {
     // Special handling for "By Region" segment type - use geography names as parent hierarchy
-    const isRegionSegmentType = segmentType === 'By Region' || segmentType === 'By State' || segmentType === 'By Country'
+    const isRegionSegmentType = segmentType === 'By Region' || segmentType === 'By Country'
 
     for (let geoIdx = 0; geoIdx < geographies.length; geoIdx++) {
       const geography = geographies[geoIdx]
@@ -976,7 +976,7 @@ async function processSegmentTypeAsync(
       // segmentPath: [North America, U.S.]
       // For country-level: geography = "U.S." (deepest level)
       // For region-level (self-referencing like North America > North America): geography = "North America"
-      const isRegionSegmentType = segmentType === 'By Region' || segmentType === 'By State' || segmentType === 'By Country'
+      const isRegionSegmentType = segmentType === 'By Region' || segmentType === 'By Country'
       if (isRegionSegmentType && segmentPath.length > 0 && segmentPath[0]) {
         const regionName = segmentPath[0]
         const entityName = segmentPath.length > 1 ? segmentPath[segmentPath.length - 1] : regionName
@@ -1152,9 +1152,9 @@ async function processSegmentTypeAsync(
           cagr = data.CAGR
         }
       } else {
-        // Calculate CAGR from base year (2023) to forecast year
-        const cagrStartYear = allYears[0] + 4 // Base year = 2023 for 2019-2031 data
-        const cagrEndYear = allYears[allYears.length - 1]
+        // Calculate CAGR from first forecast year (2026) to last forecast year (2033)
+        const cagrStartYear = 2026
+        const cagrEndYear = 2033
         const startVal = timeSeries[cagrStartYear] || 0
         const endVal = timeSeries[cagrEndYear] || 0
         const numYears = cagrEndYear - cagrStartYear
@@ -1231,11 +1231,13 @@ export async function processJsonDataAsync(
     if (allYears.length === 0) {
       throw new Error('No years found in any data source')
     }
-    const startYear = Math.min(...allYears)
-    const forecastYear = Math.max(...allYears)
-    const baseYear = startYear + 5 // Base year = 2026 for 2021-2033 data
-    // Historical/Forecast split: years before base year are historical
-    const historicalEndYear = baseYear - 1 // 2025
+    // Filter to only include years from 2025 onwards
+    allYears = allYears.filter(y => y >= 2025)
+    const startYear = Math.min(...allYears) // 2025
+    const forecastYear = Math.max(...allYears) // 2033
+    const baseYear = 2025 // Base year = 2025
+    // Historical/Forecast split: years up to base year are historical
+    const historicalEndYear = 2025 // 2025
     console.log(`Years: ${startYear} to ${forecastYear}, base: ${baseYear}, historical end: ${historicalEndYear}`)
     
     // Extract geographies from segmentation data (first level keys)
@@ -1396,7 +1398,7 @@ export async function processJsonDataAsync(
 
     // Process "By Region" data separately for geography-based records
     // These records are NOT added to segment types but provide data for region/country geographies
-    const geoSegmentTypes = ['By Region', 'By State', 'By Country']
+    const geoSegmentTypes = ['By Region', 'By Country']
     for (const geoSegType of geoSegmentTypes) {
       // Check if this geo segment type exists in the structure data
       const hasGeoSegType = Object.values(structureData).some(

@@ -156,7 +156,6 @@ export function filterData(
   // These segment types have geographies as segments, so the hierarchy is different
   // Don't force aggregation level 2 for these - let all records through
   const isRegionalSegmentType = filters.segmentType === 'By Region' ||
-                                 filters.segmentType === 'By State' ||
                                  filters.segmentType === 'By Country'
 
   // If aggregationLevel is explicitly set to null or undefined, use automatic detection
@@ -450,7 +449,6 @@ export function filterData(
     // For "By Region", the selected "segment" is actually a geography name (like "North America")
     // and we need to match records where record.geography === selected segment
     const isRegionSegmentType = filters.segmentType === 'By Region' ||
-                                filters.segmentType === 'By State' ||
                                 filters.segmentType === 'By Country'
 
     // Check if we're using advancedSegments (multi-type selection)
@@ -1835,9 +1833,8 @@ export function prepareIntelligentMultiLevelData(
   // In this case, we want to show each selected segment as a separate series
   const hasExplicitLevel1Selection = selectedLevel1Segments.length > 0
 
-  // Check if this is a regional segment type (By Region, By State, By Country)
+  // Check if this is a regional segment type (By Region, By Country)
   const isRegionalSegmentType = filters.segmentType === 'By Region' ||
-                                filters.segmentType === 'By State' ||
                                 filters.segmentType === 'By Country'
 
   // Group records by segment (or geography) and find the best representation
@@ -1975,7 +1972,6 @@ export function prepareIntelligentMultiLevelData(
 
     // Check if this is a regional segment type
     const isRegionalSegmentType = filters.segmentType === 'By Region' ||
-                                  filters.segmentType === 'By State' ||
                                   filters.segmentType === 'By Country'
 
     // Standard logic for non-Global mapping cases

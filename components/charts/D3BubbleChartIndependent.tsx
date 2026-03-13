@@ -1444,7 +1444,7 @@ export function D3BubbleChartIndependent({ title, height = 500 }: BubbleChartPro
       .style('font-size', '11px')
       .style('fill', '#000000')
       .style('font-style', 'italic')
-      .text(`Bubble size represents ${data?.metadata?.forecast_year || 2031} market size in ${selectedGeography} | All values projected to ${data?.metadata?.forecast_year || 2031}`)
+      .text(`Bubble size represents ${data?.metadata?.forecast_year || 2033} market size in ${selectedGeography} | All values projected to ${data?.metadata?.forecast_year || 2033}`)
 
   }, [chartData, dimensions, selectedGeography])
 
@@ -1787,7 +1787,7 @@ export function D3BubbleChartIndependent({ title, height = 500 }: BubbleChartPro
               <div className="pt-2 mt-2 border-t border-gray-200">
                 <p className="text-xs font-semibold text-black mb-2">ACTUAL VALUES</p>
                 <div className="flex items-center justify-between">
-                  <span className="text-sm text-black">Market Size ({data?.metadata?.forecast_year || 2031}):</span>
+                  <span className="text-sm text-black">Market Size ({data?.metadata?.forecast_year || 2033}):</span>
                   <div className="text-right">
                     <span className="text-sm font-semibold text-black">
                       {tooltipData.currentValue.toLocaleString(undefined, { 
@@ -1805,7 +1805,7 @@ export function D3BubbleChartIndependent({ title, height = 500 }: BubbleChartPro
                   </span>
                 </div>
                 <div className="flex items-center justify-between">
-                  <span className="text-sm text-black">CAGR ({data?.metadata?.base_year || 2025}-{data?.metadata?.forecast_year || 2031}):</span>
+                  <span className="text-sm text-black">CAGR ({data?.metadata?.base_year || 2025}-{data?.metadata?.forecast_year || 2033}):</span>
                   <span className={`text-sm font-semibold ${
                     tooltipData.cagr > 0 ? 'text-green-600' : tooltipData.cagr < 0 ? 'text-red-600' : 'text-black'
                   }`}>
@@ -1813,7 +1813,7 @@ export function D3BubbleChartIndependent({ title, height = 500 }: BubbleChartPro
                   </span>
                 </div>
                 <div className="flex items-center justify-between">
-                  <span className="text-sm text-black">Growth ({data?.metadata?.base_year || 2025}-{data?.metadata?.forecast_year || 2031}):</span>
+                  <span className="text-sm text-black">Growth ({data?.metadata?.base_year || 2025}-{data?.metadata?.forecast_year || 2033}):</span>
                   <span className={`text-sm font-semibold ${
                     tooltipData.absoluteGrowth > 0 ? 'text-green-600' : tooltipData.absoluteGrowth < 0 ? 'text-red-600' : 'text-black'
                   }`}>
