@@ -100,8 +100,8 @@ export function GlobalKPICards() {
       return null
     }
 
-    // Use actual years from data metadata
-    const startYear = data.metadata.base_year || data.metadata.start_year
+    // Use first forecast year (base_year + 1 = 2026) for KPI calculations
+    const startYear = (data.metadata.base_year || data.metadata.start_year) + 1
     const endYear = data.metadata.forecast_year
 
     // Calculate total market size for start and end years
