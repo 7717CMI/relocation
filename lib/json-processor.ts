@@ -1336,7 +1336,6 @@ export async function processJsonDataAsync(
 
     // Remove "By Region" (and similar) from segment types - these are geography dimensions, not segments
     segmentTypes.delete('By Region')
-    segmentTypes.delete('By State')
     segmentTypes.delete('By Country')
     console.log(`Segment types after removing geography types:`, Array.from(segmentTypes))
 
@@ -1472,7 +1471,7 @@ export async function processJsonDataAsync(
     
     // Build metadata
     const metadata: Metadata = {
-      market_name: 'Normothermic Machine Perfusion Market',
+      market_name: 'Secondary Corporate Relocation Services Market',
       market_type: 'Market Analysis',
       industry: 'Healthcare & Pharmaceuticals',
       years: allYears,

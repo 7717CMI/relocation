@@ -1,63 +1,33 @@
 {
   "Global": {
-    "By Type": {
-      "Sub-Normothermic Perfusion (20–34°C)": {},
-      "Warm or Normothermic Perfusion (35–37°C)": {}
+    "By Assignment Geography": {
+      "Domestic Relocation": {},
+      "International Relocation": {}
     },
-    "By Organ Type": {
-      "Liver": {},
-      "Heart": {},
-      "Lung": {},
-      "Kidney": {},
-      "Others (Pancreas, Small bowel / Intestine, Composite Tissues / Limb Perfusion (emerging use cases))": {}
+    "By Assignment Duration": {
+      "Short Term Assignments up to 12 Months": {},
+      "Long Term Assignments more than 12 Months": {},
+      "Permanent Transfers": {}
     },
-    "Application / Use Case": {
-      "Organ Preservation": {},
-      "Viability Assessment": {},
-      "Physiologic Transport": {},
-      "Reconditioning Marginal Organs": {},
-      "Others (Research Use / Protocol development)": {}
-    },
-    "By End User": {
-      "Hospitals & Clinics": {},
-      "Specialty Clinic/Centers": {},
-      "Transplant Centers": {},
-      "Others (Research Institutes/Centers, Organ Procurement Organizations, etc.)": {}
+    "By End Use Industry": {
+      "Healthcare": {},
+      "Pharmaceuticals & Biotechnology": {},
+      "Retail & Consumer Enterprises": {},
+      "Financial Services": {},
+      "Manufacturing": {},
+      "Information Technology & Systems Integrators": {},
+      "Government Contractors & Defense": {},
+      "Others (Energy & Utilities, etc.)": {}
     },
     "By Region": {
-      "North America": {
-        "U.S.": {},
-        "Canada": {}
-      },
-      "Europe": {
-        "U.K.": {},
-        "Germany": {},
-        "Italy": {},
-        "France": {},
-        "Spain": {},
-        "Russia": {},
-        "Rest of Europe": {}
-      },
-      "Asia Pacific": {
-        "China": {},
-        "India": {},
-        "Japan": {},
-        "South Korea": {},
-        "ASEAN": {},
-        "Australia": {},
-        "Rest of Asia Pacific": {}
-      },
-      "Latin America": {
-        "Brazil": {},
-        "Argentina": {},
-        "Mexico": {},
-        "Rest of Latin America": {}
-      },
-      "Middle East & Africa": {
-        "GCC": {},
-        "South Africa": {},
-        "Rest of Middle East & Africa": {}
-      }
+      "U.S.": {}
+    },
+    "By State": {
+      "North East": {},
+      "South East": {},
+      "Midwest": {},
+      "North West": {},
+      "South West": {}
     }
   }
 }
